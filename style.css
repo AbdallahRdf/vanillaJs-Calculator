@@ -32,6 +32,7 @@ input{
     margin-bottom: 10px;
     background-color: transparent;
     color: white;
+    cursor: default;
 }
 
 .flex-row{
@@ -71,12 +72,24 @@ button {
     font-size: 30px;
 }
 
+button:hover {
+    background-color: #09151e;
+}
+
 .operator {
     background-color: #142A5C;
 }
 
+.operator:hover {
+    background-color: #1a3472;
+}
+
 .equalBtn {
-    background-color: #1B397C;
+    background-color: #1d3f87;
+}
+
+.equalBtn:hover {
+    background-color: #22438b;
 }
 
 p {
