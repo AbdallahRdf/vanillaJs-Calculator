@@ -1,2 +1,2 @@
-# vanillaJs-Calculator
-Calculator created only vanilla javascript
+# Calculator
+Calculator created only using vanilla javascript
