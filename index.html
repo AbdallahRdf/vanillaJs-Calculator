@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Javascript Calculator</title>
@@ -8,45 +11,50 @@
 </head>
 <body>
     <div id="calculator">
-        <div id="screen">
-            <input type="text" value="0" readonly dir="rtl">
+        <div>
+            <input id="upperScreen" type="text" readonly>
+        </div>
+        <div>
+            <input id="display" type="text" value="0" readonly>
         </div>
         <div id="buttons">
             <div class="flex-row">
-                <button id="acBtn">AC</button>
-                <button>/</button>
-                <button class="operator">x</button>
+                <button id="clear">AC</button>
+                <button id="divide">/</button>
+                <button class="operator" id="multiply">x</button>
             </div>
             <div class="flex-row">
-                <button>7</button>
-                <button>8</button>
-                <button>9</button>
-                <button class="operator">-</button>
+                <button id="seven">7</button>
+                <button id="eigth">8</button>
+                <button id="nine">9</button>
+                <button class="operator" id="substract">-</button>
             </div>
             <div class="flex-row">
-                <button>4</button>
-                <button>5</button>
-                <button>6</button>
-                <button class="operator">+</button>
+                <button id="four">4</button>
+                <button id="five">5</button>
+                <button id="six">6</button>
+                <button class="operator" id="add">+</button>
             </div>
             <div class="flex-row">
                 <div class="flex-col w-75">
                     <div class="flex-row">
-                        <button>1</button>
-                        <button>2</button>
-                        <button>3</button>
+                        <button id="one">1</button>
+                        <button id="two">2</button>
+                        <button id="three">3</button>
                     </div>
                     <div class="flex-row">
-                        <button id="btn0">0</button>
-                        <button>.</button>
+                        <button id="zero">0</button>
+                        <button id="decimal">.</button>
                     </div>
                 </div>
                 <div class="w-25">
-                    <button class="equalBtn">=</button>
+                    <button class="equalBtn" id="equals">=</button>
                 </div>
             </div>
         </div>
     </div>
     <p>Designed and coded by <br>Abdallah Radfi</p>
+
+    <script src="index.js"></script>
 </body>
 </html>
