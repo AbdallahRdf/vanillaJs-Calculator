@@ -8,10 +8,10 @@ const fourBtn = document.querySelector("#four");
 const fiveBtn = document.querySelector("#five");
 const sixBtn = document.querySelector("#six");
 const sevenBtn = document.querySelector("#seven");
-const eigthBtn = document.querySelector("#eigth");
+const eigthBtn = document.querySelector("#eight");
 const nineBtn = document.querySelector("#nine");
 const add = document.querySelector("#add");
-const substract = document.querySelector("#substract");
+const substract = document.querySelector("#subtract");
 const multiply = document.querySelector("#multiply");
 const divide = document.querySelector("#divide");
 const decimalBtn = document.querySelector("#decimal");
@@ -23,7 +23,7 @@ screen.value = "0";
 
 const expression = [];
 const operators = ["+", "-", "/", "x"];
-const operator = null;
+// let operator = null;
 let result = null;
 
 autoResizeTextarea = () => {
@@ -35,167 +35,143 @@ autoResizeTextarea();
 
 oneBtn.addEventListener("click", () =>{    
     if(result !== null){
-        result = null;
-        screen.value = "1";
-        upperScreen.value = "1";
+        startAnotherOp("1");
     }else{
         (screen.value == "0" || operators.includes(screen.value)) ? (screen.value = "1") : (screen.value += "1");
         upperScreen.value == "0" ? (upperScreen.value = "1") : (upperScreen.value += "1");
     }
     autoResizeTextarea();
 });
+
 twoBtn.addEventListener("click", () => {
     if(result !== null){
-        result = null;
-        screen.value = "2";
-        upperScreen.value = "2";
+        startAnotherOp("2");
     }else{
         (screen.value == "0" || operators.includes(screen.value)) ? (screen.value = "2") : (screen.value += "2");
         upperScreen.value == "0" ? (upperScreen.value = "2") : (upperScreen.value += "2");
     }
     autoResizeTextarea();
 });
+
 threeBtn.addEventListener("click", () => {
     if(result !== null){
-        result = null;
-        screen.value = "3";
-        upperScreen.value = "3";
+        startAnotherOp("3");
     }else{
         (screen.value == "0" || operators.includes(screen.value)) ? (screen.value = "3") : (screen.value += "3");
         upperScreen.value == "0" ? (upperScreen.value = "3") : (upperScreen.value += "3");
     }
     autoResizeTextarea();
 });
+
 fourBtn.addEventListener("click", () => {
     if(result !== null){
-        result = null;
-        screen.value = "4";
-        upperScreen.value = "4";
+        startAnotherOp("4");
     }else{
         (screen.value == "0" || operators.includes(screen.value)) ? (screen.value = "4") : (screen.value += "4");
         upperScreen.value == "0" ? (upperScreen.value = "4") : (upperScreen.value += "4");
     }
     autoResizeTextarea();
 });
+
 fiveBtn.addEventListener("click", () => {
     if(result !== null){
-        result = null;
-        screen.value = "5";
-        upperScreen.value = "5";
+        startAnotherOp("5");
     }else{
         (screen.value == "0" || operators.includes(screen.value)) ? (screen.value = "5") : (screen.value += "5");
         upperScreen.value == "0" ? (upperScreen.value = "5") : (upperScreen.value += "5");
     }
     autoResizeTextarea();
 });
+
 sixBtn.addEventListener("click", () => {
     if(result !== null){
-        result = null;
-        screen.value = "6";
-        upperScreen.value = "6";
+        startAnotherOp("6");
     }else{
         (screen.value == "0" || operators.includes(screen.value)) ? (screen.value = "6") : (screen.value += "6");
         upperScreen.value == "0" ? (upperScreen.value = "6") : (upperScreen.value += "6");
     }
     autoResizeTextarea();
 });
+
 sevenBtn.addEventListener("click", () => {
     if(result !== null){
-        result = null;
-        screen.value = "7";
-        upperScreen.value = "7";
+        startAnotherOp("7");
     }else{
         (screen.value == "0" || operators.includes(screen.value)) ? (screen.value = "7") : (screen.value += "7");
         upperScreen.value == "0" ? (upperScreen.value = "7") : (upperScreen.value += "7");
     }
     autoResizeTextarea();
 });
+
 eigthBtn.addEventListener("click", () => {
     if(result !== null){
-        result = null;
-        screen.value = "8";
-        upperScreen.value = "8";
+        startAnotherOp("8");
     }else{
         (screen.value == "0" || operators.includes(screen.value)) ? (screen.value = "8") : (screen.value += "8");
         upperScreen.value == "0" ? (upperScreen.value = "8") : (upperScreen.value += "8");
     }
     autoResizeTextarea();
 });
+
 nineBtn.addEventListener("click", () => {
     if(result !== null){
-        result = null;
-        screen.value = "9";
-        upperScreen.value = "9";
+        startAnotherOp("9");
     }else{
         (screen.value == "0" || operators.includes(screen.value)) ? (screen.value = "9") : (screen.value += "9");
         upperScreen.value == "0" ? (upperScreen.value = "9") : (upperScreen.value += "9");
     }
     autoResizeTextarea();
 });
+
 zeroBtn.addEventListener("click", () => {
     if(result !== null){
-        result = null;
-        screen.value = "0";
-        upperScreen.value = "0";
+        startAnotherOp("0");
     }else{
-        (screen.value != "0" && !operators.includes(screen.value)) ? (screen.value += "0") : screen.value = "0";
-        upperScreen.value != "0" && (upperScreen.value += "0");
+        (screen.value != "0" && !operators.includes(screen.value)) ? (screen.value += "0") : (screen.value = "0");
+        (upperScreen.value != "0" && screen.value != "0") && (upperScreen.value += "0");
     }
     autoResizeTextarea();
 });
+
 decimalBtn.addEventListener("click", () => {
     if(result !== null){
-        result = null;
-        screen.value = "0.";
-        upperScreen.value = "0.";
-    }else{
+        startAnotherOp("0.");
+    }else if(!(/\./g.test(screen.value))){
         screen.value += ".";
         upperScreen.value += ".";
     }
     autoResizeTextarea();
 });
+
 clear.addEventListener("click", () => {
   screen.value = "0";
-  upperScreen.value = "0";
+  upperScreen.value = "";
   expression.splice(0);
   result = null;
-  upperScreen.value = "";
   autoResizeTextarea();
 });
 
 add.addEventListener("click", () => {
     if(result !== null){
-        expression.push(result, "+");
-        screen.value = "+";
-        upperScreen.value = result+"+";
-        result = null;
+        continueOperation("+");
     }else{
-        if(screen.value == "0"){
-            expression.push("0","+");
-        }else if(screen.value=="+"){
-            expression.push("+");
-        }else if(!["x", "/"].includes(screen.value)){
-            expression.push(screen.value, "+");
+        if (operators.includes(screen.value)) {
+            twoOpertorsEntered("+");
+        }else{
+            regularOp("+");
         }
-        screen.value = "+";
-        upperScreen.value += "+"
     }
     autoResizeTextarea();
 });
 
 substract.addEventListener("click", () => {
     if(result !== null){
-        expression.push(result, "-");
-        screen.value = "-";
-        upperScreen.value = result+"-";
-        result = null;
-    }else{
-        if (screen.value == "0") {
-          expression.push("0", "-");
-        } else if (screen.value == "-") {
-          expression.push("-");
-        } else if (!["x", "/"].includes(screen.value)) {
-          expression.push(screen.value, "-");
+        continueOperation("-");
+    }else if(!(expression[expression.length-1]==="-" && expression[expression.length-2]==="-")){
+        if (operators.includes(screen.value)) {
+            expression.push("-");
+        }else{
+            expression.push(screen.value, "-");
         }
         screen.value = "-";
         upperScreen.value += "-";
@@ -205,98 +181,152 @@ substract.addEventListener("click", () => {
 
 multiply.addEventListener("click", () => {
     if(result !== null){
-        expression.push(result, "x");
-        screen.value = "x";
-        upperScreen.value = result+"x";
-        result = null;
-    }else if(!operators.includes(screen.value)){
-        screen.value == "0" ? expression.push("0","x") : expression.push(screen.value, "x");
-        screen.value = "x";
-        upperScreen.value += "x";
+        continueOperation("x");
+    }else if (operators.includes(screen.value)) {
+      twoOpertorsEntered("x");
+    } else {
+      regularOp("x");
     }
     autoResizeTextarea();
 });
 
 divide.addEventListener("click", () => {
     if(result !== null){
-        expression.push(result, "/");
-        screen.value = "/";
-        upperScreen.value = result+"/";
-        result = null;
-    }else if(!operators.includes(screen.value)){
-        screen.value == "0" ? expression.push("0","/") : expression.push(screen.value, "/");
-        screen.value = "/";
-        upperScreen.value += "/";
+        continueOperation("/");
+    }else if(operators.includes(screen.value)){
+        twoOpertorsEntered("/");
+    }else{
+        regularOp("/");
     }
     autoResizeTextarea();
 });
 
 equalBtn.addEventListener("click", () => {
     expression.push(screen.value);
-    if(expression.length == 0){
-        screen.value = "NAN";
-        upperScreen.value = "=NAN";
-    }else{
-      console.log(expression);
 
-      //* handling the sign of a number;
-      for(let i=0; i<expression.length-1; i++){
-        if((expression[i]=="-" && expression[i+1]=="-") || (expression[i]=="+" && expression[i+1]=="+")){
-            expression.splice(i, 2, "+");
-            i = 0;
-        }else if((expression[i]=="-" && expression[i+1]=="+") || (expression[i]=="+" && expression[i+1]=="-")){
-            expression.splice(i, 2, "-");
-            i = 0;
-        }
-      }
+    //* fixing the expression;
+    removeOperatorAtEnd();
 
-      //* handling "*" and "/" operation;
-      for (let i = 0; i < expression.length; i++) {
-        if (["x", "/"].includes(expression[i])) {
-          switch (expression[i]) {
-            case "x":
-              result = parseFloat(expression[i - 1]) * parseFloat(expression[i + 1]);
-              break;
-            case "/":
-              result = parseFloat(expression[i - 1]) / parseFloat(expression[i + 1]);
-              break;
-          }
-          expression.splice(i - 1, 3, result);
-          if (expression.length === 1) {
-            break;
-          }
-          i = 0;
-        }
-      }
+    //* callign function to fix number sign;
+    fixSign();
 
-      //* handling "+" and "-" operation;
-      if (expression.length !== 1) {
-        for (let i = 0; i < expression.length; i++) {
-          if (["+", "-"].includes(expression[i])) {
-            switch (expression[i]) {
-              case "+":
-                result =
-                  parseFloat(expression[i - 1]) + parseFloat(expression[i + 1]);
-                break;
-              case "-":
-                result =
-                  parseFloat(expression[i - 1]) - parseFloat(expression[i + 1]);
-                break;
-            }
-            expression.splice(i - 1, 3, result);
-            if (expression.length === 1) {
-              break;
-            }
-            i = 0;
-          }
-        }
-      }
-      console.log(expression);
-      screen.value = expression.join("");
-      upperScreen.value += "=" + expression.join("");
-      expression.splice(0);
-      result = result?.toString();
-      console.log(expression);
-      console.log(result);
-    }
+    //* calling function for * and / operations;
+    multiplyAndDivide();
+
+    //* calling function for + and - operations;
+    (expression.length !== 1) && addAndSubtruct();
+
+    screen.value = expression[0];
+    upperScreen.value += "=" + expression[0];
+    expression.splice(0);
+    result = result?.toString();
 });
+
+ //* handling "+" and "-" operation;
+const addAndSubtruct = () => {
+    for (let i = 0; i < expression.length; i++) {
+    if (["+", "-"].includes(expression[i])) {
+        switch (expression[i]) {
+        case "+":
+            result =
+            parseFloat(expression[i - 1]) + parseFloat(expression[i + 1]);
+            break;
+        case "-":
+            result =
+            parseFloat(expression[i - 1]) - parseFloat(expression[i + 1]);
+            break;
+        }
+        expression.splice(i - 1, 3, result);
+        if (expression.length === 1) {
+        break;
+        }
+        i = 0;
+    }
+    }
+}
+
+//* handling "*" and "/" operation;
+const multiplyAndDivide = () => {
+    for (let i = 0; i < expression.length; i++) {
+      if (["x", "/"].includes(expression[i])) {
+        switch (expression[i]) {
+          case "x":
+            result =
+              parseFloat(expression[i - 1]) * parseFloat(expression[i + 1]);
+            break;
+          case "/":
+            result =
+              parseFloat(expression[i - 1]) / parseFloat(expression[i + 1]);
+            break;
+        }
+        expression.splice(i - 1, 3, result);
+        if (expression.length === 1) {
+          break;
+        }
+        i = 0;
+      }
+    }
+}
+
+//* handling the sign of numbers;
+const fixSign = () => {
+    for (let i = 0; i < expression.length - 1; i++) {
+      if (
+        (expression[i] == "-" && expression[i + 1] == "-") ||
+        (expression[i] == "+" && expression[i + 1] == "+")
+      ) {
+        expression.splice(i, 2, "+");
+        i = 0;
+      } else if (
+        (expression[i] == "-" && expression[i + 1] == "+") ||
+        (expression[i] == "+" && expression[i + 1] == "-")
+      ) {
+        expression.splice(i, 2, "-");
+        i = 0;
+      } else if(["/", "x"].includes(expression[i]) && ["-", "+"].includes(expression[i+1])){
+        expression[i+2] = expression[i+1]+expression[i+2];
+        expression.splice(i+1, 1);
+        i=0;
+      }
+    }
+}
+
+//* handle new operation based on the result of the previous one
+const continueOperation = (operatorChar) => {
+    expression.push(result, operatorChar);
+    screen.value = operatorChar;
+    upperScreen.value = result + operatorChar;
+    result = null;
+}
+
+//* handle when two consecutive operators are entered, the operation performed should be the last operator;
+const twoOpertorsEntered =(opertorChar) => {
+    let condi = (expression[expression.length-1] == '-' && operators.includes(expression[expression.length-2]));
+    expression.pop();
+    condi && expression.pop();
+    expression.push(opertorChar);
+    screen.value = opertorChar;
+    upperScreen.value = expression.join("");
+}
+
+//* fixing the expression, 
+const removeOperatorAtEnd = ()=>{
+    while(/[/+-/x//]$/.test(upperScreen.value)){
+        expression.pop();
+        upperScreen.value = expression.join("");
+    }
+}
+
+//* handle starting a new operation;
+const startAnotherOp = (number) => {
+    result = null;
+    screen.value = number;
+    upperScreen.value = number;
+}
+
+//* this function pushes the value intered and the operator, and show them on both the screen and upperScreen
+const regularOp = (operatorChar) => {
+    expression.push(screen.value, operatorChar);
+    screen.value = operatorChar;
+    upperScreen.value += operatorChar;
+}
