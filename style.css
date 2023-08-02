@@ -114,9 +114,15 @@ p {
 
 @media only screen
 and (min-device-width: 320px)
-and (max-device-width: 480px) {
+and (max-device-width: 500px) {
     #calculator {
         width: 70%;
+    }
+}
+
+@media only screen and (min-device-width: 501px) and (max-device-width: 767px) {
+    #calculator {
+        width: 60%;
     }
 }
 
